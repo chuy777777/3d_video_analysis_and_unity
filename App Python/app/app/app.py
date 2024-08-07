@@ -21,6 +21,11 @@ class FrameApplication(CreateFrame):
         self.folder_name_optimal_parameters=os.path.join(self.current_path, *["pinhole_camera_model", "optimal_parameters"])
         self.folder_name_video_recording=os.path.join(self.current_path, *["pages", "video_analysis", "video_recording"])
         
+        # Crear directorios en caso de que no existan
+        for folder_path in [self.folder_name_video_recording]:
+            if not os.path.exists(folder_path):
+                os.mkdir(folder_path)
+
         self.thread_camera_1=ThreadCamera(root_name="camera_1", folder_name_optimal_parameters=self.folder_name_optimal_parameters)
         self.thread_camera_2=ThreadCamera(root_name="camera_2", folder_name_optimal_parameters=self.folder_name_optimal_parameters)
         self.thread_camera_1.start()
