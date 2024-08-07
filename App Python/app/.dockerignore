@@ -1,0 +1,5 @@
+app/app_env
+app/.env
+app/pages/video_analysis/video_recording/*
+app/pinhole_camera_model/optimal_parameters/*
+__pycache__/
